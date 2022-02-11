@@ -1,0 +1,32 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.navbar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  padding: 20px;
+  z-index: 1;
+  top: 0;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.nav-links {
+  display: flex;
+}
+.nav-links ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+.nav-links ul li a {
+  text-decoration: none;
+  color: #111;
+}
+.avatar {
+  display: flex;
+}

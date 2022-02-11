@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import styled from "styled-components";
 
-function App() {
+import { ModalProvider, ModalContext } from "./hooks";
+import Nav from "./Components/Navbar/Navbar";
+import Modal from "./Components/Modal/ModalNavbar";
+
+const Div = styled.div`
+  margin: 0;
+  padding: 0;
+  color: grey;
+  background: white;
+`;
+
+const InnerDiv = styled.div`
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+`;
+
+const MyApp = () => {
+  const { signupOpen, signinOpen } = useContext(ModalContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Div>
+      <Nav />
+      <InnerDiv>
+        <h1>Welcome to React Mall</h1>
+        {(signupOpen || signinOpen) && <Modal />}
+      </InnerDiv>
+    </Div>
   );
-}
+};
+
+const App = () => (
+  <ModalProvider>
+    <MyApp />
+  </ModalProvider>
+);
 
 export default App;
